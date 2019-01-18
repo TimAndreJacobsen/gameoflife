@@ -4,6 +4,10 @@ var cols = 10;
 var rows = 10;
 var resolution = 10;
 var ctx;
+var point;  
+var enpoint;         
+var width = resolution;
+var height = resolution;
 
 /* Create a 2 dimensional array and populate it with random number 0 or 1 */
 function make2DArray(cols, rows) {
@@ -40,26 +44,34 @@ function render() {
     for (let i = 0; i<cols; i++){
         for(let j = 0; j<rows; j++){
 
-            point = {
-                x: 0,
-                y: 0,
-            };
-            width = resolution;
-            height = resolution;
+            if (!point){
+                point = {
+                    x: 0,
+                    y: 0,
+                };
+            }
 
-            let x = point.x
-            let y = point.y
-            let w = width;
-            let h = height;
+            drawSquare(point);
 
-            ctx.beginPath();
-            ctx.rect(x, y, w, h);
-            ctx.fillStyle = "#000000";
-            ctx.fill();
-            ctx.closePath();
-            
+
         }
     }
+}
+
+// helper function for render
+function drawSquare({x, y}) {
+    console.log("printing a square, oops i mean draw!");
+    var endPoint = {
+        x: x + width,
+        y: y + height,
+    };
+    ctx.beginPath();
+    ctx.rect(point.x, point.y, endpoint.x, endpoint.y);
+    ctx.fillStyle = "#000000";
+    ctx.fill();
+    ctx.closePath();
+    
+    return endPoint;
 }
 
 // Runtime
