@@ -1,9 +1,9 @@
 // Vars
-let grid;
-let cols = 10;
-let rows = 10;
-let resolution = 40;
-let ctx;
+var grid;
+var cols = 10;
+var rows = 10;
+var resolution = 10;
+var ctx;
 
 /* Create a 2 dimensional array and populate it with random number 0 or 1 */
 function make2DArray(cols, rows) {
@@ -36,15 +36,32 @@ function populateArray(arr) {
 }
 
 function render() {
-    background(0);
+
     for (let i = 0; i<cols; i++){
         for(let j = 0; j<rows; j++){
-            let w = width;
 
-            rect(x, y, w, h);
+            point = {
+                x: 0,
+                y: 0,
+            };
+            width = resolution;
+            height = resolution;
+
+            let x = point.x
+            let y = point.y
+            let w = width;
+            let h = height;
+
+            ctx.beginPath();
+            ctx.rect(x, y, w, h);
+            ctx.fillStyle = "#000000";
+            ctx.fill();
+            ctx.closePath();
+            
         }
     }
 }
 
 // Runtime
 setup();
+render();
