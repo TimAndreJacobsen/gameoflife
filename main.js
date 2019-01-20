@@ -33,19 +33,15 @@ function populateArray(arr) {
 
 function render() {
     console.log("Render called");
-    drawColumn(0,0);
-    console.log("returned from drawcolumn");
+    drawGrid(0,0);
+    console.log("Render done");
 }
 
 
-function drawColumn(x, y){
+function drawGrid(x, y){
     console.log("drawColumn called");
-
-    for (let c = 0; c < resolution; c++){                                                 // For every col
-        for (let r = 0; r < resolution; r++){                                             // For every row
-            ctx.beginPath();                                                        // Start drawing
-            ctx.rect(c*resolution, r*resolution, (c*resolution) + resolution, (r*resolution) + resolution); // rectangle starts at 
-
+    for (let c = 0; c < resolution; c++){
+        for (let r = 0; r < resolution; r++){
             if (grid[c][r] == 0) {
                 console.log("black at grid: " + c + ", " + r);
                 ctx.fillStyle = "#000000";
@@ -53,11 +49,10 @@ function drawColumn(x, y){
                 console.log("white at grid: " + c + ", " + r);
                 ctx.fillStyle = "#f5f5f5";
             }
-
-            ctx.fill();
-            ctx.closePath();
+            ctx.fillRect(c*resolution, r*resolution, resolution, resolution);
         }
     }
+    console.log("drawGrid Done!");
 }
 
 // Runtime
