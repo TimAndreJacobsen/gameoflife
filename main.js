@@ -42,13 +42,7 @@ function drawGrid(x, y){
     console.log("drawColumn called");
     for (let c = 0; c < resolution; c++){
         for (let r = 0; r < resolution; r++){
-            if (grid[c][r] == 0) {
-                console.log("black at grid: " + c + ", " + r);
-                ctx.fillStyle = "#000000";
-            } else {
-                console.log("white at grid: " + c + ", " + r);
-                ctx.fillStyle = "#f5f5f5";
-            }
+            (grid[c][r]) ? ctx.fillStyle = "#f5f5f5" : ctx.fillStyle = "#000000";
             ctx.fillRect(c*resolution, r*resolution, resolution, resolution);
         }
     }
