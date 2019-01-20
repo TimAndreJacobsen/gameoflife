@@ -36,23 +36,33 @@ function populateArray(arr) {
 
 function render() {
     console.log("Render called");
-
-    for (let i = 0; i<cols; i++){
-        drawColumn(point.x, point.y, cols);
-        point.x += resolution;
-    }
+    drawColumn(point.x, point.y);
     console.log("returned from drawcolumn");
 }
 
 
-function drawColumn(x, y, cols){
+function drawColumn(x, y){
     console.log("drawColumn called");
-    for (i = 1; i <= cols; i++){
-        ctx.beginPath();
-        ctx.rect(point.x, point.y, x + resolution, y + (resolution * i));
-        ctx.fillStyle = "#000000";
-        ctx.fill();
-        ctx.closePath();
+
+    for (let c = 0; c < cols; c++){                                                 // For every col
+        for (let r = 0; r < rows; r++){                                             // For every row
+            ctx.beginPath();                                                        // Start drawing
+            ctx.rect(point.x, point.y, point.x + resolution, point.y + resolution); // rectangle starts at 
+
+            if (grid[c][r] == 0) {
+                console.log("black at grid: " + c + ", " + r);
+                ctx.fillStyle = "#000000";
+            } else {
+                console.log("white at grid: " + c + ", " + r);
+                ctx.fillStyle = "#f5f5f5";
+            }
+
+            ctx.fill();
+            ctx.closePath();
+            point.y += resolution;
+        }
+        point.y = 0;
+        point.x += resolution;
     }
 }
 
