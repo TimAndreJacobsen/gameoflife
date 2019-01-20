@@ -1,10 +1,7 @@
 // Vars
 var grid;
-var cols = 10;
-var rows = 10;
 var resolution = 10;
-var ctx;
-var point = {x: 0, y: 0};        
+var ctx;     
 
 /* Create a 2 dimensional array and populate it with random number 0 or 1 */
 function make2DArray(cols, rows) {
@@ -20,14 +17,14 @@ function setup() {
     console.log("setup called");
     canvas = document.getElementById("canvas");
     ctx = canvas.getContext("2d");
-    grid = make2DArray(cols, rows);
+    grid = make2DArray(resolution, resolution);
     populateArray(grid);
 }
 
 function populateArray(arr) {
     console.log("populateArray called");     
-    for (let i = 0; i < cols; i++) {
-        for (j = 0; j < rows; j++) {
+    for (let i = 0; i < resolution; i++) {
+        for (j = 0; j < resolution; j++) {
             arr[i][j] = Math.floor(Math.random() * Math.floor(2));    // generate a random number from 0-1 and insert it to given index
           }
     }
@@ -36,7 +33,7 @@ function populateArray(arr) {
 
 function render() {
     console.log("Render called");
-    drawColumn(point.x, point.y);
+    drawColumn(0,0);
     console.log("returned from drawcolumn");
 }
 
@@ -44,10 +41,10 @@ function render() {
 function drawColumn(x, y){
     console.log("drawColumn called");
 
-    for (let c = 0; c < cols; c++){                                                 // For every col
-        for (let r = 0; r < rows; r++){                                             // For every row
+    for (let c = 0; c < resolution; c++){                                                 // For every col
+        for (let r = 0; r < resolution; r++){                                             // For every row
             ctx.beginPath();                                                        // Start drawing
-            ctx.rect(point.x, point.y, point.x + resolution, point.y + resolution); // rectangle starts at 
+            ctx.rect(c*resolution, r*resolution, (c*resolution) + resolution, (r*resolution) + resolution); // rectangle starts at 
 
             if (grid[c][r] == 0) {
                 console.log("black at grid: " + c + ", " + r);
@@ -59,10 +56,7 @@ function drawColumn(x, y){
 
             ctx.fill();
             ctx.closePath();
-            point.y += resolution;
         }
-        point.y = 0;
-        point.x += resolution;
     }
 }
 
