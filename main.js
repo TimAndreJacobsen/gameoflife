@@ -4,6 +4,7 @@
  [x] - make grid
  [x] - populate grid
  [x] - display grid
+ [ ] - add margins to grid
  [ ] - define core game loop
  [ ] - implement logic/rules of Conway's game of life
  [ ] - run each cell of the grid through logic/rules and create a new grid for a new state
@@ -50,6 +51,11 @@ function render() {
     console.log("Render called");
     drawGrid(0,0);
     console.log("Render done");
+    // Create a new grid by running current grid through logic/gamerules
+    // console.log("calculations done");
+    // clear canvas
+    // draw new state
+    // console.log("rerender done");
 }
 
 
