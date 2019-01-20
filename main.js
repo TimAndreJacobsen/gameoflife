@@ -24,16 +24,11 @@ function setup() {
     populateArray(grid);
 }
 
-function getRandomInt(max) {
-    console.log("getRandomInt called");
-    return Math.floor(Math.random() * Math.floor(max));
-}
-
 function populateArray(arr) {
     console.log("populateArray called");     
-    for (let i = 0; i < cols; i++) {        // for every cols index 
-        for (j = 0; j < rows; j++) {        // for every rows index
-            arr[i][j] = getRandomInt(2);    // generate a random number from 0-1 and insert it to given index
+    for (let i = 0; i < cols; i++) {
+        for (j = 0; j < rows; j++) {
+            arr[i][j] = Math.floor(Math.random() * Math.floor(2));    // generate a random number from 0-1 and insert it to given index
           }
     }
     return arr;
