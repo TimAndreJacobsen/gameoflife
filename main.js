@@ -1,4 +1,19 @@
-// Vars
+/**
+ gameplan:
+ 
+ [x] - make grid
+ [x] - populate grid
+ [x] - display grid
+ [ ] - define core game loop
+ [ ] - implement logic/rules of Conway's game of life
+ [ ] - run each cell of the grid through logic/rules and create a new grid for a new state
+ [ ] - redraw grid
+  
+  bugfix Goals - AKA this needs to be fixed sooner rather than later
+ [ ] - untie resolution from gridSquare size
+ */
+
+// Variables in global scope
 var grid;
 var resolution = 10;
 var ctx;     
