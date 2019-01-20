@@ -11,13 +11,15 @@
  [ ] - redraw grid
   
   bugfix Goals - AKA this needs to be fixed sooner rather than later
- [ ] - untie resolution from gridSquare size
+ [x] - untie resolution from gridSquare size
  */
 
 // Variables in global scope
 var grid;
-var resolution = 10;
-var ctx;     
+var ctx; 
+var resolution = 10;    
+var width = 10;
+var height = 10; 
 
 /* Create a 2 dimensional array and populate it with random number 0 or 1 */
 function make2DArray(cols, rows) {
@@ -63,8 +65,8 @@ function drawGrid(x, y){
     console.log("drawColumn called");
     for (let c = 0; c < resolution; c++){
         for (let r = 0; r < resolution; r++){
-            (grid[c][r]) ? ctx.fillStyle = "#f5f5f5" : ctx.fillStyle = "#000000";
-            ctx.fillRect(c*resolution, r*resolution, resolution, resolution);
+            grid[c][r] ? ctx.fillStyle = "#f5f5f5" : ctx.fillStyle = "#000000";
+            ctx.fillRect(c*width, r*height, width, height);
         }
     }
     console.log("drawGrid Done!");
