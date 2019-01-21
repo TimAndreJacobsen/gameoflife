@@ -1,19 +1,3 @@
-/**
- gameplan:
- 
- [x] - make grid
- [x] - populate grid
- [x] - display grid
- [x] - add margins to grid
- [ ] - define core game loop
- [ ] - implement logic/rules of Conway's game of life
- [ ] - run each cell of the grid through logic/rules and create a new grid for a new state
- [ ] - redraw grid
-  
-  bugfix Goals - AKA this needs to be fixed sooner rather than later
- [x] - untie resolution from gridSquare size
- */
-
 // Variables in global scope
 var grid;
 var ctx; 
@@ -22,9 +6,15 @@ var width = 10;
 var height = 10;
 var margins = 1;
 
-/* Create a 2 dimensional array */
+function setup() {
+    canvas = document.getElementById("canvas");
+    ctx = canvas.getContext("2d");
+    grid = make2DArray(resolution, resolution);
+    populateArray(grid);
+    drawGrid();
+}
+
 function make2DArray(cols, rows) {
-    console.log("creating array");
     var arr = new Array(cols);
     for (let i = 0; i < cols; i++) {
         arr[i] = new Array(rows);
@@ -32,18 +22,7 @@ function make2DArray(cols, rows) {
     return arr;
 }
 
-function setup() {
-    console.log("setup started");
-    canvas = document.getElementById("canvas");
-    ctx = canvas.getContext("2d");
-    grid = make2DArray(resolution, resolution);
-    populateArray(grid);
-    drawGrid();
-    console.log("setup exiting");
-}
-
-function populateArray(arr) {
-    console.log("populating array");     
+function populateArray(arr) {  
     for (let i = 0; i < resolution; i++) {
         for (let j = 0; j < resolution; j++) {
             arr[i][j] = Math.floor(Math.random() * Math.floor(2));    // generate a random number from 0-1 and insert it to given index
@@ -59,7 +38,6 @@ function render() {
     drawGrid()
     setTimeout(render, 250);
 }
-
 
 function drawGrid(){
     console.log("rendering grid");
