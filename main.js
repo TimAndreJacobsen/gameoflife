@@ -44,7 +44,7 @@ function setup() {
 function populateArray(arr) {
     console.log("populating array");     
     for (let i = 0; i < resolution; i++) {
-        for (j = 0; j < resolution; j++) {
+        for (let j = 0; j < resolution; j++) {
             arr[i][j] = Math.floor(Math.random() * Math.floor(2));    // generate a random number from 0-1 and insert it to given index
           }
     }
