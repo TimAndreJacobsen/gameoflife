@@ -4,7 +4,7 @@
  [x] - make grid
  [x] - populate grid
  [x] - display grid
- [ ] - add margins to grid
+ [x] - add margins to grid
  [ ] - define core game loop
  [ ] - implement logic/rules of Conway's game of life
  [ ] - run each cell of the grid through logic/rules and create a new grid for a new state
@@ -17,7 +17,7 @@
 // Variables in global scope
 var grid;
 var ctx; 
-var resolution = 20;    
+var resolution = 100;    // x by x Grid, resolutions = x
 var width = 10;
 var height = 10;
 var margins = 1;
@@ -66,7 +66,7 @@ function drawGrid(){
     console.log("rendering grid");
     for (let c = 0; c < resolution; c++){
         for (let r = 0; r < resolution; r++){
-            grid[c][r] ? ctx.fillStyle = "#f5f5f5" : ctx.fillStyle = "#000000";
+            grid[c][r] ? ctx.fillStyle = "#000000" : ctx.fillStyle = "#f5f5f5";
             ctx.fillRect(c*width, r*height, width - margins, height - margins);
         }
     }
