@@ -95,6 +95,33 @@ function calculateNextGeneration(grid) {
     }
     return newGrid;
 }
+
+//returns number of live neighbours, or 2 if edge case
+function checkNeighbours(grid, x, y){ 
+    var liveNeighbours = 0;
+    var cols = grid.length;
+    var rows = grid[0].length;
+
+    for(let i = -1; i < 2; i++){
+
+        if( x == 0 || x == cols -1 || y == 0 || y == rows -1){ // TODO: fix this, maybe a wrap around of the grid?
+            return 2; // hack for edge cases. basically just dont do anything if its an edge case
+
+        } else {
+            if(grid[x-1][y-i]){
+                liveNeighbours++;
+            }
+            if(grid[x][y-i] && i != 0){
+                liveNeighbours++;
+            }
+            if(grid[x+1][y-i]){
+                liveNeighbours++;
+            }
+        }
+    }
+    return liveNeighbours;
+}
+
 // Runtime
 setup();
 render();
