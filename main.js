@@ -62,7 +62,7 @@ function render() {
 }
 
 
-function drawGrid(x, y){
+function drawGrid(){
     console.log("rendering grid");
     for (let c = 0; c < resolution; c++){
         for (let r = 0; r < resolution; r++){
