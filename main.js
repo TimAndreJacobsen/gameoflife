@@ -72,6 +72,29 @@ function drawGrid(x, y){
     }
 }
 
+function calculateNextGeneration(grid) {
+    var newGrid = grid.slice(); // create a new array as copy of the old array
+    var cols = grid.length;
+    var rows = grid[0].length;
+
+    for (let i = 0; i < cols; i++) {
+        for (let j = 0; j < rows; j++) {
+
+            if (grid[i][j]){ // evaluates to true if cell is alive
+                let liveNeighbours = checkNeighbours(grid, i, j);
+                if (liveNeighbours < 2 || liveNeighbours > 3){
+                    newGrid[i][j] = 0;
+                }
+            } else { // Cell is dead
+                let liveNeighbours = checkNeighbours(grid, i, j);
+                if(liveNeighbours == 3) {
+                    newGrid[i][j] = 1;
+                }
+            }
+        }
+    }
+    return newGrid;
+}
 // Runtime
 setup();
 render();
