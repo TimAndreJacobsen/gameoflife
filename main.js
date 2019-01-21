@@ -19,7 +19,8 @@ var grid;
 var ctx; 
 var resolution = 20;    
 var width = 10;
-var height = 10; 
+var height = 10;
+var margins = 1;
 
 /* Create a 2 dimensional array and populate it with random number 0 or 1 */
 function make2DArray(cols, rows) {
@@ -66,7 +67,7 @@ function drawGrid(x, y){
     for (let c = 0; c < resolution; c++){
         for (let r = 0; r < resolution; r++){
             grid[c][r] ? ctx.fillStyle = "#f5f5f5" : ctx.fillStyle = "#000000";
-            ctx.fillRect(c*width, r*height, width, height);
+            ctx.fillRect(c*width, r*height, width - margins, height - margins);
         }
     }
 }
