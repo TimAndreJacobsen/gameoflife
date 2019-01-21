@@ -22,12 +22,12 @@ var width = 10;
 var height = 10;
 var margins = 1;
 
-/* Create a 2 dimensional array and populate it with random number 0 or 1 */
+/* Create a 2 dimensional array */
 function make2DArray(cols, rows) {
     console.log("creating array");
-    var arr = new Array(cols);          // make an array cols length
-    for (let i = 0; i < cols; i++) {    // for every cols index
-        arr[i] = new Array(rows);       // make a new array of rows length
+    var arr = new Array(cols);
+    for (let i = 0; i < cols; i++) {
+        arr[i] = new Array(rows);
     }
     return arr;
 }
