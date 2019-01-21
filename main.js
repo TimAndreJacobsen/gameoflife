@@ -17,7 +17,7 @@
 // Variables in global scope
 var grid;
 var ctx; 
-var resolution = 100;    // x by x Grid, resolutions = x
+var resolution = 50;    // x by x Grid, resolutions = x
 var width = 10;
 var height = 10;
 var margins = 1;
@@ -46,8 +46,12 @@ function populateArray(arr) {
     console.log("populating array");     
     for (let i = 0; i < resolution; i++) {
         for (let j = 0; j < resolution; j++) {
+            if(Math.floor(Math.random() * Math.floor(10)) > 1) {
+                arr[i][j] = 0;
+            } else {
             arr[i][j] = Math.floor(Math.random() * Math.floor(2));    // generate a random number from 0-1 and insert it to given index
           }
+        }
     }
     return arr;
 }
