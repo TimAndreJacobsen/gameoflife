@@ -38,6 +38,7 @@ function setup() {
     ctx = canvas.getContext("2d");
     grid = make2DArray(resolution, resolution);
     populateArray(grid);
+    drawGrid();
     console.log("setup exiting");
 }
 
@@ -52,13 +53,11 @@ function populateArray(arr) {
 }
 
 function render() {
-    drawGrid(0,0);
-    console.log("Render done");
-    // Create a new grid by running current grid through logic/gamerules
-    // console.log("calculations done");
-    // clear canvas
-    // draw new state
-    // console.log("rerender done");
+    grid = calculateNextGeneration(grid);
+    console.log("calculations done");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawGrid()
+    setTimeout(render, 250);
 }
 
 
