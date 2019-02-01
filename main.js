@@ -5,13 +5,14 @@
  [x] - populate grid
  [x] - display grid
  [x] - add margins to grid
- [ ] - define core game loop
- [ ] - implement logic/rules of Conway's game of life
- [ ] - run each cell of the grid through logic/rules and create a new grid for a new state
- [ ] - redraw grid
+ [x] - define core game loop
+ [x] - implement logic/rules of Conway's game of life
+ [x] - run each cell of the grid through logic/rules and create a new grid for a new state
+ [x] - redraw grid
   
   bugfix Goals - AKA this needs to be fixed sooner rather than later
  [x] - untie resolution from gridSquare size
+ [ ] - fix bug with calculations or Write tests, calculations seem off
  */
 
 // Variables in global scope
